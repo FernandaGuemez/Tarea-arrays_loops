@@ -3,20 +3,34 @@
 // Store the information and then showcase it in the console. Take note that the output for the films should 
 // add a small message like: 'The film {film} is one of my favorites'.
 
+
+// PARA USAR PROMPTS se deberá agregar
+//const prompt = require("prompt-sync")();
+// y en la terminal lo siguiente: npm install prompt-sync
+
 const prompt = require("prompt-sync")();
 
-let nombreUsuario = prompt("Ingresa Nombre de usuario");
-let edadUsuario = prompt("Ingresa Edad usuario");
-let peliculasFavUsuario = prompt("Peliculas favoritas separadas por comas");
+let nombreUsuario = prompt("Ingresa Nombre de usuario: ");
+let edadUsuario = prompt("Ingresa Edad usuario: ");
+let peliculasFavUsuario = prompt("Peliculas favoritas separadas por comas: ");
 
-let pelisFavs = peliculasFavUsuario.split("nemo", "the room", "sherkfer");
+let pelisFavs = peliculasFavUsuario.split(",");
+
+let peliculaFav = prompt("De las peliculas que ingresaste, ¿cuál es tu pelicula favorita?");
 
 console.log("Nombre: " + nombreUsuario);
 console.log("Edad" + edadUsuario);
-console.log("Peliculas favoritas " + peliculasFavUsuario)
 
-for (let i = 0; i < pelisFavs; i++) {
-    console.log("La pelicula "+ pelisFavs[i] + " es una de mis favoritas")
+
+for (let i = 0; i < pelisFavs.length; i++) {
+    let mensaje = "La pelicula" + pelisFavs[i] + " es una de mis favoritas";
+
+    console.log(pelisFavs[i]);
+
+    if (pelisFavs[i] === peliculaFav) {
+        mensaje += " Y es tu pelicula favorita!";
+}
+console.log(mensaje);
 }
 
 
