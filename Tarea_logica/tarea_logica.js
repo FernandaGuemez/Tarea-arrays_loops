@@ -5,36 +5,33 @@
 
 
 // PARA USAR PROMPTS se deberá agregar
-//const prompt = require("prompt-sync")();
+const prompt = require("prompt-sync")();
 // y en la terminal lo siguiente: npm install prompt-sync
 
-const prompt = require("prompt-sync")();
+// const prompt = require("prompt-sync")();
 
-let nombreUsuario = prompt("Ingresa Nombre de usuario: ");
-let edadUsuario = prompt("Ingresa Edad usuario: ");
-let peliculasFavUsuario = prompt("Peliculas favoritas separadas por comas: ");
+// let nombreUsuario = prompt("Ingresa Nombre de usuario: ");
+// let edadUsuario = prompt("Ingresa Edad usuario: ");
+// let peliculasFavUsuario = prompt("Peliculas favoritas separadas por comas: ");
 
-let pelisFavs = peliculasFavUsuario.split(",");
+// let pelisFavs = peliculasFavUsuario.split(",");
 
-let peliculaFav = prompt("De las peliculas que ingresaste, ¿cuál es tu pelicula favorita?");
+// let peliculaFav = prompt("De las peliculas que ingresaste, ¿cuál es tu pelicula favorita?");
 
-console.log("Nombre: " + nombreUsuario);
-console.log("Edad" + edadUsuario);
-
-
-for (let i = 0; i < pelisFavs.length; i++) {
-    let mensaje = "La pelicula" + pelisFavs[i] + " es una de mis favoritas";
-
-    console.log(pelisFavs[i]);
-
-    if (pelisFavs[i] === peliculaFav) {
-        mensaje += " Y es tu pelicula favorita!";
-}
-console.log(mensaje);
-}
+// console.log("Nombre: " + nombreUsuario);
+// console.log("Edad" + edadUsuario);
 
 
+// for (let i = 0; i < pelisFavs.length; i++) {
+//     let mensaje = "La pelicula" + pelisFavs[i] + " es una de mis favoritas";
 
+//     console.log(pelisFavs[i]);
+
+//     if (pelisFavs[i] === peliculaFav) {
+//         mensaje += " Y es tu pelicula favorita!";
+// }
+// console.log(mensaje);
+// }
 
 
 //////////////////////////////////////////////////////
@@ -43,8 +40,33 @@ console.log(mensaje);
 // Highest number
 // Write a program that asks for 10 numbers. Using logical operators and any other javascript functions/structures you've seen before, determine and output the highest of those numbers.
 
+let numeroMayor = Number.NEGATIVE_INFINITY; //valor que asegura que cualquier número que ingrese será mayor que este valor al principio
+
+let contador = 0; //llevar la cuenta de cuantos números validos ha ingresado el usuario
+
+for (let i = 0 ; i < 10; i++) {
+    let numero = prompt("Ingresa un numero: " );
+    numero = parseFloat(numero);
 
 
+if (!isNaN(numero)) {
+    if (numero > numeroMayor) {
+       numeroMayor = numero
+    
+    }
+
+contador++;
+} else {
+    console.log("Por favor, ingresa un número válido."); // Mostramos un mensaje si la entrada no es un número válido
+    i--; // Decrementamos i para repetir la misma iteración
+}
+}
+
+if (contador > 0) {
+    console.log("El número mayor de los 10 números ingresados es: " + numeroMayor);
+} else {
+    console.log("No se ingresaron números válidos.");
+}
 ///////////////////////////////////////////////////////
 
 // Alarm
